@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaBriefcase, FaRobot, FaServer, FaCogs } from 'react-icons/fa';
+import { FaBriefcase, FaRobot, FaServer, FaCogs, FaUserTie } from 'react-icons/fa';
 
 const ExperienceCard = ({ title, role, description, tech, icon, index }) => (
     <motion.div
@@ -50,9 +50,16 @@ const ExperienceCard = ({ title, role, description, tech, icon, index }) => (
 const Experience = () => {
     const experiences = [
         {
+            title: "Senior Software Engineering Leadership",
+            role: "Technical Lead & Mentor",
+            description: "Mentored 3 junior developers on Python best practices, code reviews, and Git workflows. Led cross-functional deployments for 15+ client projects with 100% on-time delivery.",
+            tech: ["Team Leadership", "Code Review", "CI/CD", "Release Mgmt"],
+            icon: <FaUserTie />
+        },
+        {
             title: "B2C/B2B Workflow Logic Engine",
-            role: "Backend Development",
-            description: "Designed and implemented the core logic engine to streamline complicated B2C and B2B workflows, enhancing operational efficiency and data processing speed.",
+            role: "Backend Architecture",
+            description: "Designed and implemented the core logic engine to streamline complicated B2C and B2B workflows, enhancing operational efficiency and data processing speed for enterprise clients.",
             tech: ["Backend", "Logic Engine", "Workflow Automation"],
             icon: <FaServer />
         },
@@ -65,7 +72,7 @@ const Experience = () => {
         },
         {
             title: "Real-time Outage Notification System",
-            role: "RPA & API Integration",
+            role: "RPA & API Orchestration",
             description: "Built a critical system for monitoring and alerting outages in real-time. Integrated SolarWinds and Node Tracker APIs with SharePoint for centralized reporting.",
             tech: ["SolarWinds API", "Node Tracker API", "SharePoint", "Python"],
             icon: <FaCogs />

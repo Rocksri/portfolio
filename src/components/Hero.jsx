@@ -20,22 +20,23 @@ const Hero = () => {
                     <h2 className="text-xl md:text-2xl text-purple-400 font-semibold mb-4 tracking-wide">
                         HELLO THERE
                     </h2>
-                    <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
-                        I'm <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">Srinath S</span>
+                    <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-tight">
+                        Architecting <span className="text-purple-500">Fault-Tolerant Automation</span> & Scalable <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">MERN Systems</span>.
                     </h1>
-                    <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-                        Specializing in MERN Stack Development, Backend Logic, and RPA Automation.
-                        I build scalable web solutions and intelligent bots to optimize business workflows.
+                    <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed">
+                        Senior Software Engineer bridging the gap between Python RPA and Full Stack Web Apps.
+                        <br className="hidden md:block" />
+                        <span className="text-white font-medium">150+ Bots Migrated</span> | <span className="text-white font-medium">90% Workflow Efficiency</span> | <span className="text-white font-medium">2.6+ Years Experience</span>
                     </p>
 
                     <div className="flex flex-wrap justify-center gap-4">
                         <motion.a
-                            href="#contact"
+                            href="#projects"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             className="px-8 py-3 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold text-lg shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transition-all flex items-center gap-2"
                         >
-                            Let's Talk <FaArrowRight />
+                            View Architecture Case Studies <FaArrowRight />
                         </motion.a>
                     </div>
 
