@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaCode, FaNetworkWired, FaShieldAlt, FaChartLine } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaNetworkWired, FaShieldAlt, FaChartLine } from 'react-icons/fa';
 
-const ProjectCard = ({ title, description, tags, github, index, icon }) => (
+const ProjectCard = ({ title, content, tags, github, index, icon }) => (
     <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -18,7 +18,13 @@ const ProjectCard = ({ title, description, tags, github, index, icon }) => (
                 <h3 className="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">{title}</h3>
             </div>
 
-            <p className="text-gray-400 text-sm mb-4 line-clamp-4 leading-relaxed">{description}</p>
+            <div className="space-y-3 mb-6">
+                {content.map((item, i) => (
+                    <p key={i} className="text-gray-400 text-sm leading-relaxed">
+                        <strong className="text-gray-200">{item.label}:</strong> {item.text}
+                    </p>
+                ))}
+            </div>
 
             <div className="flex flex-wrap gap-2 mt-auto">
                 {tags.map((tag, i) => (
@@ -29,7 +35,6 @@ const ProjectCard = ({ title, description, tags, github, index, icon }) => (
             </div>
         </div>
         <div className="p-4 bg-gray-900/50 border-t border-gray-700 flex justify-end">
-            {/* For Case Studies, GitHub might be private, so checking link */}
             <a
                 href={github}
                 target="_blank"
@@ -37,7 +42,7 @@ const ProjectCard = ({ title, description, tags, github, index, icon }) => (
                 className={`flex items-center gap-2 text-sm ${github === '#' ? 'text-gray-500 cursor-not-allowed' : 'text-white hover:text-purple-400'} transition-colors`}
                 onClick={(e) => github === '#' && e.preventDefault()}
             >
-                <FaGithub /> {github === '#' ? 'Proprietary / Internal' : 'View Architecture'} <FaExternalLinkAlt size={10} />
+                <FaGithub /> {github === '#' ? 'Proprietary / Internal' : 'View Code'} <FaExternalLinkAlt size={10} />
             </a>
         </div>
     </motion.div>
@@ -47,26 +52,36 @@ const Projects = () => {
     const projects = [
         {
             title: "Enterprise Secret Management Framework",
-            description: "Designed the core Python security module used by the entire engineering team. Standardized credential fetching for 150+ bots, enforcing security compliance and reducing code redundancy by 30%.",
-            tags: ["Python", "OOP", "Security", "System Architecture"],
-            github: "#", // Internal/Proprietary
-            icon: <FaShieldAlt />
+            icon: <FaShieldAlt />,
+            github: "#",
+            tags: ["Python OOP", "Vault Security", "System Architecture"],
+            content: [
+                { label: "Challenge", text: "Legacy systems and hardcoded credentials caused security risks and code redundancy during massive bot migrations." },
+                { label: "Solution", text: "Architected a core Python OOP module for centralized Vault security and standardized credential fetching." },
+                { label: "Result", text: "Reduced code redundancy by 30% and enforced 100% security compliance across 150+ bots." }
+            ]
         },
         {
-            title: "Real-Time Bandwidth Intelligence System",
-            description: "Engineered a fault-tolerant monitoring service for B2B clients using Starlink APIs. Implemented polling logic to detect bandwidth thresholds (75%) and trigger critical alerts, preventing service interruptions.",
+            title: "Real-Time Bandwidth Intelligence",
+            icon: <FaNetworkWired />,
+            github: "#",
             tags: ["Node.js", "API Orchestration", "Critical Alerting"],
-            github: "#", // Internal/Proprietary
-            icon: <FaNetworkWired />
+            content: [
+                { label: "Challenge", text: "High latency and blind spots in monitoring B2B client networks led to service interruptions." },
+                { label: "Solution", text: "Engineered a fault-tolerant Node.js service for Starlink API monitoring with polling logic." },
+                { label: "Result", text: "Reduced latency by 70% and enabled proactive critical alerts for bandwidth thresholds." }
+            ]
         },
         {
             title: "Scalable Event Ticketing Engine",
-            description: "A production-grade platform handling complex ticket inventory, secure payments (Stripe), and real-time analytics. Optimized MongoDB queries using Aggregation Pipelines to visualize sales data for organizers.",
-            tags: ["MERN Stack", "Stripe", "MongoDB Aggregation", "JWT"],
+            icon: <FaChartLine />,
             github: "https://github.com/Rocksri/EventManagement",
-            icon: <FaChartLine />
+            tags: ["JWT", "RBAC", "MongoDB Aggregation", "Stripe Webhooks"],
+            content: [
+                { label: "Overview", text: "A production-grade platform handling complex ticket inventory and secure payments." },
+                { label: "Technical Deep Dive", text: "Implemented Role-Based Access Control (RBAC) and optimized MongoDB queries using Aggregation Pipelines for real-time analytics." }
+            ]
         },
-
     ];
 
     return (
@@ -88,17 +103,6 @@ const Projects = () => {
                     {projects.map((project, index) => (
                         <ProjectCard key={index} {...project} index={index} />
                     ))}
-                </div>
-
-                <div className="mt-12 text-center">
-                    <a
-                        href="https://github.com/Rocksri?tab=repositories"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gray-800 text-white hover:bg-gray-700 transition-colors border border-gray-700"
-                    >
-                        <FaGithub /> View Open Source on GitHub
-                    </a>
                 </div>
             </div>
         </section>

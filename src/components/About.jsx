@@ -14,11 +14,12 @@ const About = () => {
                 >
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">About <span className="text-purple-500">Me</span></h2>
                     <div className="bg-gray-800/50 backdrop-blur-sm p-8 rounded-2xl border border-gray-700 shadow-xl">
-                        <p className="text-gray-300 text-lg leading-relaxed mb-6">
-                            I am a results-driven <strong>MERN Stack Developer</strong> and <strong>RPA Specialist</strong> with a proven track record in building high-performance web applications and automating complex business workflows.
+                        <p className="text-gray-300 text-xl font-medium leading-relaxed mb-6">
+                            Senior-level Software Engineer optimizing enterprise workflows.
                         </p>
                         <p className="text-gray-300 text-lg leading-relaxed">
-                            With deep expertise in <strong>React, Node.js, and Python</strong>, I specialize in creating seamless user experiences and efficient backend systems. From developing AI-powered bots to architecting real-time notification systems, I bridge the gap between creative frontend design and robust, logic-driven backend engineering.
+                            I blend <strong>Full Stack architecture (MERN)</strong> with <strong>intelligent automation (Python/RPA)</strong> to reduce manual workloads by <strong>90%</strong>.
+                            My focus is on solving complex business problems through fault-tolerant systems and scalable engineering solutions, moving beyond just syntax to deliver tangible ROI.
                         </p>
                     </div>
                 </motion.div>
