@@ -21,46 +21,34 @@ const Hero = () => {
                         HELLO THERE
                     </h2>
                     <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-tight">
-                        Architecting <span className="text-purple-500">Fault-Tolerant Automation</span> & Scalable <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">MERN Systems</span>.
+                        Engineering Scalable <span className="text-purple-500">Automation</span> & <br /> <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">Full-Stack Architectures</span>.
                     </h1>
                     <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed">
-                        Senior Software Engineer bridging the gap between Python RPA and Full Stack Web Apps.
-                        <br className="hidden md:block" />
-                        <span className="text-white font-medium">150+ Bots Migrated</span> | <span className="text-white font-medium">90% Workflow Efficiency</span> | <span className="text-white font-medium">2.6+ Years Experience</span>
+                        Software Engineer with 2.6+ years of experience delivering <span className="text-white font-medium">90% workload reduction</span> across enterprise projects using <span className="text-white font-medium">Python (RPA)</span> and the <span className="text-white font-medium">MERN Stack</span>.
                     </p>
 
                     <div className="flex flex-wrap justify-center gap-4">
                         <motion.a
-                            href="#projects"
+                            href="#enterprise"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             className="px-8 py-3 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold text-lg shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transition-all flex items-center gap-2"
                         >
-                            View Architecture Case Studies <FaArrowRight />
+                            View Enterprise Solutions <FaArrowRight />
+                        </motion.a>
+
+                        <motion.a
+                            href="/assets/Srinath S MERN.pdf"
+                            download
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="px-8 py-3 rounded-full bg-gray-800 text-white font-bold text-lg border border-gray-600 hover:bg-gray-700 transition-all flex items-center gap-2"
+                        >
+                            Download CV <FaFilePdf />
                         </motion.a>
                     </div>
 
-                    <div className="mt-12">
-                        <p className="text-gray-400 mb-4 text-sm uppercase tracking-widest">Download Resumes</p>
-                        <div className="flex flex-wrap justify-center gap-4">
-                            {[
-                                { name: 'MERN Stack', file: 'Srinath S MERN.pdf' },
-                                { name: 'Backend', file: 'Srinath S BackEnd.pdf' },
-                                { name: 'Python RPA', file: 'Srinath S Python RPA.pdf' }
-                            ].map((cv, index) => (
-                                <motion.a
-                                    key={index}
-                                    href={`/assets/${cv.file}`}
-                                    download
-                                    whileHover={{ y: -5 }}
-                                    className="flex items-center gap-2 px-4 py-2 bg-gray-800/50 border border-gray-700 rounded-lg text-gray-300 hover:text-white hover:border-purple-500 transition-colors backdrop-blur-sm"
-                                >
-                                    <FaFilePdf className="text-red-400" />
-                                    <span className="text-sm font-medium">{cv.name}</span>
-                                </motion.a>
-                            ))}
-                        </div>
-                    </div>
+
                 </motion.div>
             </div>
         </section>

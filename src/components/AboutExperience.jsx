@@ -6,24 +6,25 @@ const AboutExperience = () => {
     const experiences = [
         {
             company: "Prodapt Solutions",
-            role: "Senior Software Engineer",
+            role: "Software Engineer", // As per request "Company | Role | Date", user text said "Currently a Software Engineer" in Bio, but "Senior" logic in bullets? User said "Prodapt Solutions Entry ... Do not list generic duties". I will use the role "Software Engineer" as per Bio logic or keep "Senior" if previously established? User request says: "Currently a Software Engineer at Prodapt".
+            date: "March 2023 – Present",
             icon: <FaBriefcase />,
             bullets: [
                 {
-                    title: "Legacy Modernization",
-                    desc: <span>Spearheaded the migration of legacy PHP workflows to a modern React/Node.js architecture, improving UI responsiveness and reducing user errors by <strong className="text-purple-400">25%</strong>.</span>
+                    title: "Internal Tooling Architecture",
+                    desc: "Architected a reusable Python OOP module to securely fetch secrets from BeyondTrust, adopted by the entire team to accelerate the migration of 150+ bots."
                 },
                 {
                     title: "Performance Engineering",
-                    desc: <span>Overhauled error-logging architectures using MongoDB Aggregation, slashing issue resolution time by <strong className="text-purple-400">40%</strong>.</span>
+                    desc: "Engineered a real-time data monitoring bot using Starlink APIs, triggering alerts at 75% consumption and ensuring proactive bandwidth management."
                 },
                 {
-                    title: "API Orchestration",
-                    desc: <span>Designed a resilience layer for Salesforce & Aria integrations, achieving <strong className="text-purple-400">95%</strong> reliability for workflows.</span>
+                    title: "Legacy Modernization",
+                    desc: <span>Refactored legacy PHP logic into modular Node.js/React architectures, reducing resolution time by <strong className="text-purple-400">40%</strong> through automated logging and DB updates.</span>
                 },
                 {
                     title: "Mentorship",
-                    desc: "Conducted code reviews and mentored 3 junior developers on clean code principles and Git workflows."
+                    desc: "Mentored junior developers on Python best practices and clean code standards, ensuring 100% on-time delivery."
                 }
             ]
         }
@@ -45,11 +46,11 @@ const AboutExperience = () => {
                             About <span className="text-purple-500">Me</span>
                         </h2>
                         <div className="bg-gray-800/50 backdrop-blur-sm p-8 rounded-2xl border border-gray-700 shadow-xl">
-                            <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-6">
-                                I am a <strong>Senior Software Engineer</strong> who doesn't just write code—I <span className="text-purple-400 font-bold">engineer efficiency</span>. With 2.6+ years of experience, I specialize in blending Full Stack Architecture (MERN) with Intelligent Automation (Python/RPA).
+                            <p className="text-gray-300 text-lg leading-relaxed mb-6">
+                                I don't just write code; I <span className="text-white font-bold">build systems that save time</span>. Currently a Software Engineer at Prodapt Solutions, I specialize in bridging the gap between Full Stack Development and Intelligent Automation.
                             </p>
                             <p className="text-gray-300 text-lg leading-relaxed">
-                                My focus is on building <span className="text-white font-semibold">System Design</span> that scales. From architecting secure Vault integrations for 150+ bots to <span className="text-white font-semibold">Optimization</span> of event platforms for high-volume transactions, I build <span className="text-white font-semibold">Automation</span> tools that reduce manual workloads by <strong>90%</strong> and cut system latency by <strong>70%</strong>. Currently open to Senior Engineering roles.
+                                My core expertise lies in <span className="text-white font-semibold">architecting fault-tolerant internal tools</span> and <span className="text-white font-semibold">optimizing backend performance</span>. From designing a centralized vault security module adopted by 150+ bots to engineering real-time monitoring systems that cut latency by <strong>70%</strong>, I focus on technical scalability and measurable business impact.
                             </p>
                         </div>
                     </motion.div>
@@ -70,10 +71,11 @@ const AboutExperience = () => {
                                 <div key={index} className="bg-gray-800/80 backdrop-blur-sm p-8 rounded-2xl border border-gray-700 shadow-lg hover:border-purple-500/30 transition-all">
                                     <div className="flex items-start justify-between mb-6">
                                         <div>
-                                            <h3 className="text-2xl font-bold text-white mb-2">{exp.company}</h3>
-                                            <h4 className="text-purple-400 font-semibold flex items-center gap-2">
-                                                <FaUserTie className="text-sm" /> {exp.role}
-                                            </h4>
+                                            <h3 className="text-2xl font-bold text-white mb-1">{exp.company}</h3>
+                                            <div className="flex items-center gap-2 text-purple-400 font-semibold mb-1">
+                                                <FaUserTie className="text-sm" /> <span>{exp.role}</span>
+                                            </div>
+                                            <p className="text-gray-400 text-sm italic">{exp.date}</p>
                                         </div>
                                         <div className="p-3 bg-gray-900 rounded-lg text-purple-500 text-xl border border-gray-700">
                                             {exp.icon}
