@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaNetworkWired, FaShieldAlt, FaChartLine } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaChartLine, FaCode } from 'react-icons/fa';
 
 const ProjectCard = ({ title, content, tags, github, index, icon }) => (
     <motion.div
@@ -52,28 +52,6 @@ const ProjectCard = ({ title, content, tags, github, index, icon }) => (
 const Projects = () => {
     const projects = [
         {
-            title: "Secure Vault Migration Architecture",
-            icon: <FaShieldAlt />,
-            github: "#",
-            tags: ["Python", "BeyondTrust API", "OOP Design Patterns"],
-            content: [
-                { label: "Challenge", text: "Migrating 150+ automation bots required a secure, scalable way to fetch credentials without hardcoding secrets." },
-                { label: "Solution", text: "Architected a centralized Python OOP module integrating with BeyondTrust Vault. This created a reusable standard adopted by the entire engineering team." },
-                { label: "Impact", text: "Accelerated migration timeline by 30% and ensured 100% security compliance." }
-            ]
-        },
-        {
-            title: "Real-Time Starlink Monitoring System",
-            icon: <FaNetworkWired />,
-            github: "#",
-            tags: ["Node.js", "Starlink API", "SMTP Automation"],
-            content: [
-                { label: "Challenge", text: "Managing bandwidth for remote B2B operations was manual and reactive, leading to outages." },
-                { label: "Solution", text: "Engineered a Node.js monitoring service consuming Starlink APIs to poll usage metrics in real-time (<60s intervals)." },
-                { label: "Impact", text: "Reduced notification latency by 70% and triggered auto-alerts at 75% consumption, preventing downtime." }
-            ]
-        },
-        {
             title: "Scalable Event Ticketing Engine",
             icon: <FaChartLine />,
             github: "https://github.com/Rocksri/EventManagement",
@@ -81,6 +59,16 @@ const Projects = () => {
             content: [
                 { label: "Overview", text: "A production-grade platform handling complex ticket inventory and secure payments." },
                 { label: "Technical Deep Dive", text: "Implemented Role-Based Access Control (RBAC) and optimized MongoDB queries using Aggregation Pipelines to visualize sales data for organizers." }
+            ]
+        },
+        {
+            title: "Personal Portfolio",
+            icon: <FaCode />,
+            github: "https://github.com/Rocksri/portfolio",
+            tags: ["React", "Vite", "Tailwind CSS", "Framer Motion"],
+            content: [
+                { label: "Overview", text: "A high-performance, responsive portfolio website built with modern web technologies." },
+                { label: "Credit", text: "Fully architected and implemented by Antigravity (AI Agent)." }
             ]
         },
     ];
@@ -94,16 +82,27 @@ const Projects = () => {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Key <span className="text-purple-500">Case Studies</span></h2>
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Personal <span className="text-purple-500">Projects</span></h2>
                     <p className="text-gray-400 max-w-2xl mx-auto">
-                        Deep dives into complex backend work, system design, and high-impact automation.
+                        Open source contributions and personal full-stack applications.
                     </p>
                 </motion.div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center"> {/* Centered since only 1 item */}
                     {projects.map((project, index) => (
                         <ProjectCard key={index} {...project} index={index} />
                     ))}
+                </div>
+
+                <div className="mt-12 text-center">
+                    <a
+                        href="https://github.com/Rocksri?tab=repositories"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gray-800 text-white hover:bg-gray-700 transition-colors border border-gray-700"
+                    >
+                        <FaGithub /> View More on GitHub
+                    </a>
                 </div>
             </div>
         </section>
