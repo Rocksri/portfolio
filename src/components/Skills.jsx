@@ -3,44 +3,42 @@ import { motion } from 'framer-motion';
 import { FaReact, FaNodeJs, FaPython, FaDatabase, FaServer, FaRobot, FaLock, FaDocker, FaGitAlt } from 'react-icons/fa';
 import { SiMongodb, SiPostman, SiSelenium, SiJira } from 'react-icons/si';
 
-// Define icons map to ensure we have all icons
 const Skills = () => {
     const categories = [
         {
-            title: "Core Architecture",
+            title: "Architecture",
             delay: 0,
             skills: [
-                { name: "Python (Advanced OOP)", icon: <FaPython /> },
+                { name: "Python (OOP)", icon: <FaPython /> },
                 { name: "Node.js", icon: <FaNodeJs /> },
                 { name: "MERN Stack", icon: <FaReact /> },
+                { name: "PHP", icon: <FaReact /> },
             ]
         },
         {
-            title: "Database & Cloud",
+            title: "Database",
             delay: 0.1,
             skills: [
                 { name: "MongoDB (Schema/Agg)", icon: <SiMongodb /> },
                 { name: "SQL", icon: <FaDatabase /> },
-                { name: "Docker", icon: <FaDocker /> },
             ]
         },
         {
-            title: "Automation & Security",
+            title: "Automation",
             delay: 0.2,
             skills: [
                 { name: "BeyondTrust (Vault)", icon: <FaLock /> },
-                { name: "Selenium/Robocorp", icon: <SiSelenium /> },
-                { name: "REST API Orch.", icon: <FaServer /> },
+                { name: "Selenium", icon: <SiSelenium /> },
+                { name: "RPA/Python", icon: <FaRobot /> },
             ]
         },
         {
-            title: "Tools",
+            title: "DevOps",
             delay: 0.3,
             skills: [
+                { name: "Docker", icon: <FaDocker /> },
+                { name: "CI/CD", icon: <FaRobot /> }, // Using Robot as placeholder or generic CI icon
                 { name: "Git", icon: <FaGitAlt /> },
-                { name: "JIRA", icon: <SiJira /> },
-                { name: "Postman", icon: <SiPostman /> },
-                { name: "CI/CD Pipelines", icon: <FaRobot /> },
             ]
         }
     ];

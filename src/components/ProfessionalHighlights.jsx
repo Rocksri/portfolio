@@ -66,8 +66,8 @@ const ProfessionalHighlights = () => {
         {
             title: "Secure Vault Migration Engine",
             icon: <FaShieldAlt />,
-            description: "A centralized Python middleware acting as the standard security layer for 150+ automation bots. It abstracts BeyondTrust Vault interactions, eliminating hardcoded secrets and standardizing connection retries across the organization.",
-            impact: "Accelerated migration by 60%.",
+            description: "A centralized Python middleware acting as the standard security layer for 150+ automation bots. Standardized BeyondTrust interactions and eliminated hardcoded secrets.",
+            impact: "Accelerated migration by 30%.",
             tags: ["Python", "OOP", "Security"],
             link: "https://github.com/Rocksri/BeyondTrust",
             linkLabel: "View Logic Demo",
@@ -76,11 +76,11 @@ const ProfessionalHighlights = () => {
         {
             title: "Real-Time Starlink Telemetry Monitor",
             icon: <FaSatellite />,
-            description: "A high-frequency monitoring service that polls Starlink satellite data in real-time (<60s). Built to detect service disruptions and manage B2B bandwidth thresholds automatically.",
+            description: "A high-frequency monitoring service that polls Starlink satellite data in real-time (<60s) to detect service disruptions.",
             impact: "Reduced outage notification latency by 70%.",
             tags: ["Node.js", "API Polling", "Automation"],
             link: "#",
-            linkLabel: "Internal Proprietary Tool",
+            linkLabel: "Proprietary / Internal Tool",
             isInternal: true
         }
     ];
@@ -94,7 +94,6 @@ const ProfessionalHighlights = () => {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <h4 className="text-purple-500 font-bold uppercase tracking-widest text-sm mb-2">Category A</h4>
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Enterprise <span className="text-purple-500">Architecture</span></h2>
                     <p className="text-gray-400 max-w-2xl mx-auto">
                         High-impact internal tools designed for security, scalability, and efficiency.

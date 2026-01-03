@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaChartLine } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaChartLine, FaCode, FaFileAlt } from 'react-icons/fa';
 
-const ProjectCard = ({ title, description, tags, github, index, icon }) => (
+const ProjectCard = ({ title, description, tags, github, index, icon, isInternal, linkLabel }) => (
     <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -31,15 +31,22 @@ const ProjectCard = ({ title, description, tags, github, index, icon }) => (
             </div>
         </div>
         <div className="p-4 bg-gray-900/50 border-t border-gray-700 flex justify-end">
-            <a
-                href={github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`flex items-center gap-2 text-sm ${github === '#' ? 'text-gray-500 cursor-not-allowed' : 'text-white hover:text-purple-400'} transition-colors`}
-                onClick={(e) => github === '#' && e.preventDefault()}
-            >
-                <FaGithub /> View Code <FaExternalLinkAlt size={10} />
-            </a>
+            {isInternal ? (
+                <span className="flex items-center gap-2 text-gray-500 text-sm font-medium cursor-not-allowed">
+                    {linkLabel || 'Proprietary Implementation'}
+                </span>
+            ) : (
+                <a
+                    href={github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`flex items-center gap-2 text-sm ${github === '#' ? 'text-gray-500 cursor-not-allowed' : 'text-white hover:text-purple-400'} transition-colors`}
+                    onClick={(e) => github === '#' && e.preventDefault()}
+                >
+                    <FaGithub /> View Code <FaExternalLinkAlt size={10} />
+                </a>
+            )}
+
         </div>
     </motion.div>
 );
@@ -50,9 +57,25 @@ const Projects = () => {
             title: "Event Management Platform API",
             icon: <FaChartLine />,
             github: "https://github.com/Rocksri/EventManagement",
-            tags: ["MERN", "Stripe", "RBAC"],
-            description: "Comprehensive RESTful API for event management featuring JWT authentication, Role-Based Access Control, and Stripe payment integration. Utilizes MongoDB Aggregation for real-time sales analytics."
+            tags: ["MERN Stack", "Stripe", "RBAC"],
+            description: "Comprehensive RESTful API featuring JWT authentication, Role-Based Access Control, and Stripe payment integration."
         },
+        {
+            title: "Dynamic eForm System",
+            icon: <FaFileAlt />,
+            github: "#",
+            tags: ["React.js", "Frontend Validation", "PHP"],
+            description: "Designed and deployed a suite of dynamic electronic forms to digitize manual workflows. Features real-time frontend validation that ensures 100% data integrity for downstream RPA bots. Digitized 4 manual processes and reduced user submission errors by 25%.",
+            isInternal: true,
+            linkLabel: "Proprietary Implementation"
+        },
+        {
+            title: "Personal Portfolio Website",
+            icon: <FaCode />,
+            github: "https://github.com/Rocksri/portfolio",
+            tags: ["React", "CSS3", "Netlify"],
+            description: "A responsive, high-performance portfolio designed to showcase architectural case studies and technical expertise."
+        }
     ];
 
     return (
@@ -64,14 +87,13 @@ const Projects = () => {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <h4 className="text-purple-500 font-bold uppercase tracking-widest text-sm mb-2">Category B</h4>
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Full Stack <span className="text-purple-500">Applications</span></h2>
                     <p className="text-gray-400 max-w-2xl mx-auto">
                         End-to-end web solutions demonstrating robust architecture and best practices.
                     </p>
                 </motion.div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center"> {/* Centered since only 1 item */}
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
                     {projects.map((project, index) => (
                         <ProjectCard key={index} {...project} index={index} />
                     ))}
