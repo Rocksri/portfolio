@@ -1,48 +1,41 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaBriefcase, FaRobot, FaServer, FaCogs, FaUserTie } from 'react-icons/fa';
+import { FaBriefcase, FaUserTie } from 'react-icons/fa';
 
-const ExperienceCard = ({ title, role, description, tech, icon, index }) => (
+const ExperienceCard = ({ company, role, bullets, icon, index }) => (
     <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: index * 0.1 }}
-        className={`relative flex flex-col md:flex-row items-center justify-between mb-8 group ${index % 2 === 0 ? 'md:flex-row-reverse' : ''
-            }`}
+        className="relative pl-8 sm:pl-12 py-6 group"
     >
-        {/* Layout Spacer for Desktop to push content to one side */}
-        <div className="hidden md:block w-5/12" />
+        {/* Timeline Line */}
+        <div className="absolute left-2 sm:left-0 top-0 bottom-0 w-0.5 bg-gray-700 group-last:bottom-auto group-last:h-8"
+            style={{ top: index === 0 ? '1.5rem' : '0' }} />
 
-        {/* Center Timeline Icon & Line */}
-        <div className="absolute left-4 md:left-1/2 -translate-x-1/2 flex flex-col items-center h-full top-0">
-            {/* Top Line Segment connecting to previous */}
-            {index > 0 && <div className="w-0.5 h-6 bg-gray-700 md:h-8" />}
-
-            {/* Icon */}
-            <div className="w-10 h-10 bg-gray-900 border-2 border-purple-500 rounded-full flex items-center justify-center text-purple-500 z-10 shadow-[0_0_10px_rgba(168,85,247,0.5)] shrink-0 my-1">
-                <div className="text-secondary text-sm">{icon}</div>
-            </div>
-
-            {/* Bottom Line Segment */}
-            <div className="w-0.5 flex-grow bg-gray-700" />
+        {/* Icon */}
+        <div className="absolute left-2 sm:left-0 top-6 w-8 h-8 -translate-x-1/2 bg-gray-900 border-2 border-purple-500 rounded-full flex items-center justify-center text-purple-500 z-10 shadow-[0_0_10px_rgba(168,85,247,0.5)]">
+            <div className="text-xs">{icon}</div>
         </div>
 
         {/* Content Card */}
-        <div className={`w-full md:w-5/12 pl-12 md:pl-0 ${index % 2 === 0 ? 'md:text-right md:pr-8' : 'md:text-left md:pl-8'
-            }`}>
-            <div className="bg-gray-800/80 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-purple-500/50 transition-all shadow-lg">
-                <h3 className="text-xl font-bold text-white mb-1">{title}</h3>
-                <h4 className="text-purple-400 font-medium mb-3 text-sm">{role}</h4>
-                <p className="text-gray-400 text-sm mb-4 leading-relaxed">{description}</p>
-                <div className={`flex flex-wrap gap-2 ${index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'}`}>
-                    {tech.map((t, i) => (
-                        <span key={i} className="text-xs px-2 py-1 bg-gray-700/50 text-purple-300 rounded font-medium border border-gray-600">
-                            {t}
-                        </span>
-                    ))}
-                </div>
-            </div>
+        <div className="bg-gray-800/80 backdrop-blur-sm p-8 rounded-xl border border-gray-700 hover:border-purple-500/50 transition-all shadow-lg">
+            <h3 className="text-2xl font-bold text-white mb-1">{company}</h3>
+            <h4 className="text-purple-400 font-semibold mb-6 flex items-center gap-2">
+                <FaUserTie className="text-sm" /> {role}
+            </h4>
+
+            <ul className="space-y-4">
+                {bullets.map((bullet, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                        <span className="w-1.5 h-1.5 rounded-full bg-purple-500 mt-2 shrink-0"></span>
+                        <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+                            <strong className="text-white">{bullet.title}:</strong> {bullet.desc}
+                        </p>
+                    </li>
+                ))}
+            </ul>
         </div>
     </motion.div>
 );
@@ -50,39 +43,27 @@ const ExperienceCard = ({ title, role, description, tech, icon, index }) => (
 const Experience = () => {
     const experiences = [
         {
-            title: "Senior Software Engineering Leadership",
-            role: "Technical Lead & Mentor",
-            description: "Mentored 3 junior developers on Python best practices, code reviews, and Git workflows. Led cross-functional deployments for 15+ client projects with 100% on-time delivery.",
-            tech: ["Team Leadership", "Code Review", "CI/CD", "Release Mgmt"],
-            icon: <FaUserTie />
-        },
-        {
-            title: "B2C/B2B Workflow Logic Engine",
-            role: "Backend Architecture",
-            description: "Designed and implemented the core logic engine to streamline complicated B2C and B2B workflows, enhancing operational efficiency and data processing speed for enterprise clients.",
-            tech: ["Backend", "Logic Engine", "Workflow Automation"],
-            icon: <FaServer />
-        },
-        {
-            title: "Sigma Repush Bot (AI-Powered)",
-            role: "MERN Stack Development",
-            description: "Developed an intelligent bot using the MERN stack to automatically handle and retry failed transactions or processes, significantly reducing manual intervention.",
-            tech: ["MongoDB", "Express", "React", "Node.js", "AI Integration"],
-            icon: <FaRobot />
-        },
-        {
-            title: "Real-time Outage Notification System",
-            role: "RPA & API Orchestration",
-            description: "Built a critical system for monitoring and alerting outages in real-time. Integrated SolarWinds and Node Tracker APIs with SharePoint for centralized reporting.",
-            tech: ["SolarWinds API", "Node Tracker API", "SharePoint", "Python"],
-            icon: <FaCogs />
-        },
-        {
-            title: "Finance Monthly Rental Automation",
-            role: "Python RPA Automation",
-            description: "Automated the end-to-end process of monthly rental calculations and reporting using Python and Excel automation, with automated email distribution via SMTP.",
-            tech: ["Python", "Excel Automation", "SMTP", "Scripting"],
-            icon: <FaBriefcase />
+            company: "Prodapt Solutions",
+            role: "Senior Software Engineer",
+            icon: <FaBriefcase />,
+            bullets: [
+                {
+                    title: "Legacy Modernization",
+                    desc: <span>Spearheaded the migration of legacy PHP workflows to a modern React/Node.js architecture, improving UI responsiveness and reducing user errors by <strong className="text-purple-400 text-lg">25%</strong>.</span>
+                },
+                {
+                    title: "Performance Engineering",
+                    desc: <span>Overhauled error-logging architectures using MongoDB Aggregation, slashing issue resolution time by <strong className="text-purple-400 text-lg">40%</strong>.</span>
+                },
+                {
+                    title: "API Orchestration",
+                    desc: <span>Designed a resilience layer for Salesforce & Aria integrations, achieving <strong className="text-purple-400 text-lg">95%</strong> reliability for customer communication workflows.</span>
+                },
+                {
+                    title: "Mentorship",
+                    desc: "Conducted code reviews and mentored 3 junior developers on clean code principles and Git workflows."
+                }
+            ]
         }
     ];
 
@@ -93,21 +74,19 @@ const Experience = () => {
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
-                    className="text-center mb-16"
+                    className="text-center mb-12"
                 >
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Professional <span className="text-purple-500">Experience</span></h2>
                     <p className="text-gray-400 max-w-2xl mx-auto">
-                        Highlights of my professional work in Backend Systems, RPA, and Full Stack Development.
+                        Delivering high-impact solutions and engineering leadership.
                     </p>
                 </motion.div>
 
-                <div className="max-w-6xl mx-auto">
-                    {experiences.map((exp, index) => (
-                        <ExperienceCard key={index} {...exp} index={index} />
-                    ))}
-                    {/* End dot or fade out for the line implies continuation or end */}
-                    <div className="hidden md:flex justify-center -mt-8">
-                        <div className="w-0.5 h-10 bg-gradient-to-b from-gray-700 to-transparent"></div>
+                <div className="max-w-4xl mx-auto">
+                    <div className="relative border-l-0 border-gray-700 ml-3 sm:ml-0">
+                        {experiences.map((exp, index) => (
+                            <ExperienceCard key={index} {...exp} index={index} />
+                        ))}
                     </div>
                 </div>
             </div>

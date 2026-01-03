@@ -18,15 +18,16 @@ const ProjectCard = ({ title, content, tags, github, index, icon }) => (
                 <h3 className="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">{title}</h3>
             </div>
 
-            <div className="space-y-3 mb-6">
+            <div className="space-y-4 mb-6">
                 {content.map((item, i) => (
-                    <p key={i} className="text-gray-400 text-sm leading-relaxed">
-                        <strong className="text-gray-200">{item.label}:</strong> {item.text}
-                    </p>
+                    <div key={i} className="text-sm">
+                        <strong className="text-purple-400 block mb-1 uppercase text-xs tracking-wider">{item.label}</strong>
+                        <p className="text-gray-300 leading-relaxed">{item.text}</p>
+                    </div>
                 ))}
             </div>
 
-            <div className="flex flex-wrap gap-2 mt-auto">
+            <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-gray-700/50">
                 {tags.map((tag, i) => (
                     <span key={i} className="text-xs px-2 py-1 bg-gray-700 text-purple-300 rounded-full border border-gray-600">
                         {tag}
@@ -51,35 +52,35 @@ const ProjectCard = ({ title, content, tags, github, index, icon }) => (
 const Projects = () => {
     const projects = [
         {
-            title: "Enterprise Secret Management Framework",
+            title: "Secure Vault Migration Architecture",
             icon: <FaShieldAlt />,
             github: "#",
-            tags: ["Python OOP", "Vault Security", "System Architecture"],
+            tags: ["Python", "BeyondTrust API", "OOP Design Patterns"],
             content: [
-                { label: "Challenge", text: "Legacy systems and hardcoded credentials caused security risks and code redundancy during massive bot migrations." },
-                { label: "Solution", text: "Architected a core Python OOP module for centralized Vault security and standardized credential fetching." },
-                { label: "Result", text: "Reduced code redundancy by 30% and enforced 100% security compliance across 150+ bots." }
+                { label: "Challenge", text: "Migrating 150+ automation bots required a secure, scalable way to fetch credentials without hardcoding secrets." },
+                { label: "Solution", text: "Architected a centralized Python OOP module integrating with BeyondTrust Vault. This created a reusable standard adopted by the entire engineering team." },
+                { label: "Impact", text: "Accelerated migration timeline by 30% and ensured 100% security compliance." }
             ]
         },
         {
-            title: "Real-Time Bandwidth Intelligence",
+            title: "Real-Time Starlink Monitoring System",
             icon: <FaNetworkWired />,
             github: "#",
-            tags: ["Node.js", "API Orchestration", "Critical Alerting"],
+            tags: ["Node.js", "Starlink API", "SMTP Automation"],
             content: [
-                { label: "Challenge", text: "High latency and blind spots in monitoring B2B client networks led to service interruptions." },
-                { label: "Solution", text: "Engineered a fault-tolerant Node.js service for Starlink API monitoring with polling logic." },
-                { label: "Result", text: "Reduced latency by 70% and enabled proactive critical alerts for bandwidth thresholds." }
+                { label: "Challenge", text: "Managing bandwidth for remote B2B operations was manual and reactive, leading to outages." },
+                { label: "Solution", text: "Engineered a Node.js monitoring service consuming Starlink APIs to poll usage metrics in real-time (<60s intervals)." },
+                { label: "Impact", text: "Reduced notification latency by 70% and triggered auto-alerts at 75% consumption, preventing downtime." }
             ]
         },
         {
             title: "Scalable Event Ticketing Engine",
             icon: <FaChartLine />,
             github: "https://github.com/Rocksri/EventManagement",
-            tags: ["JWT", "RBAC", "MongoDB Aggregation", "Stripe Webhooks"],
+            tags: ["MERN Stack", "Stripe", "MongoDB Aggregation", "JWT"],
             content: [
                 { label: "Overview", text: "A production-grade platform handling complex ticket inventory and secure payments." },
-                { label: "Technical Deep Dive", text: "Implemented Role-Based Access Control (RBAC) and optimized MongoDB queries using Aggregation Pipelines for real-time analytics." }
+                { label: "Technical Deep Dive", text: "Implemented Role-Based Access Control (RBAC) and optimized MongoDB queries using Aggregation Pipelines to visualize sales data for organizers." }
             ]
         },
     ];
@@ -93,9 +94,9 @@ const Projects = () => {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Architecture <span className="text-purple-500">Case Studies</span></h2>
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Key <span className="text-purple-500">Case Studies</span></h2>
                     <p className="text-gray-400 max-w-2xl mx-auto">
-                        Deep dives into scalable systems, enterprise automation, and fault-tolerant architectures.
+                        Deep dives into complex backend work, system design, and high-impact automation.
                     </p>
                 </motion.div>
 
