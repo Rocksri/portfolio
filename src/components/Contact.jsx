@@ -39,12 +39,7 @@ const Contact = () => {
             {/* Decorative blob */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-purple-600/10 rounded-full blur-3xl -z-10"></div>
 
-            {/* Netlify Hidden Form for Detection - using data-netlify for React compatibility */}
-            <form name="contact" data-netlify="true" hidden>
-                <input type="text" name="name" />
-                <input type="email" name="email" />
-                <textarea name="message"></textarea>
-            </form>
+
 
             <div className="container mx-auto px-4">
                 <motion.div
