@@ -8,10 +8,12 @@ import Certifications from './components/Certifications';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import CustomCursor from './components/CustomCursor';
 
 function App() {
   return (
     <div className="bg-gray-900 min-h-screen text-white selection:bg-purple-500 selection:text-white">
+      <CustomCursor />
       <Navbar />
       <Hero />
       <AboutExperience />

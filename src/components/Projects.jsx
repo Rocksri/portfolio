@@ -75,7 +75,7 @@ const Projects = () => {
             icon: <FaChartLine />,
             githubFront: "https://github.com/Rocksri/EventManagement",
             githubBack: "https://github.com/Rocksri/online_event_manage",
-            demo: "https://event-management-frontend-demo.netlify.app", // Placeholder if no live link provided, user can update
+            demo: "https://eventifymanage.netlify.app/login", // Placeholder if no live link provided, user can update
             tags: ["MERN Stack", "Stripe", "JWT", "Tailwind"],
             description: "A comprehensive platform for organizing and booking events. Features secure JWT authentication, role-based dashboards for admins/users, and Stripe payment integration for ticket booking."
         },
@@ -83,7 +83,7 @@ const Projects = () => {
             title: "Recipe Finder App",
             icon: <FaUtensils />,
             githubFront: "https://github.com/Rocksri/RecipeApp",
-            demo: "https://recipe-app-demo.netlify.app", // Placeholder
+            demo: "https://recipesappe.netlify.app/", // Placeholder
             tags: ["React.js", "TheMealDB API", "Axios", "Tailwind"],
             description: "Dynamic recipe search application allowing users to find meals by name, category, or ingredients. Integrates with TheMealDB API to fetch real-time data and instructions."
         },
@@ -91,7 +91,7 @@ const Projects = () => {
             title: "Smart Expense Tracker",
             icon: <FaMoneyBillWave />,
             githubFront: "https://github.com/Rocksri/expensetracker",
-            demo: "https://smart-expense-tracker-demo.netlify.app", // Placeholder
+            demo: "https://expensetrackzers.netlify.app/", // Placeholder
             tags: ["React.js", "LocalStorage", "Chart.js"],
             description: "Personal finance tool to track daily expenses with data visualization. Uses LocalStorage for data persistence and Chart.js to display spending analytics by category."
         }
