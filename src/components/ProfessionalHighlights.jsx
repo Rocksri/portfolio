@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaShieldAlt, FaExternalLinkAlt, FaLock, FaSatellite } from 'react-icons/fa';
+import { FaShieldAlt, FaExternalLinkAlt, FaLock, FaSatellite, FaFileAlt } from 'react-icons/fa';
 
 const HighlightCard = ({ title, description, tags, link, linkLabel, isInternal, icon, index, impact }) => (
     <motion.div
@@ -82,6 +82,16 @@ const ProfessionalHighlights = () => {
             link: "#",
             linkLabel: "Proprietary / Internal Tool",
             isInternal: true
+        },
+        {
+            title: "Dynamic eForm System",
+            icon: <FaFileAlt />,
+            description: "Designed and deployed a suite of dynamic electronic forms to digitize manual workflows. Features real-time frontend validation that ensures 100% data integrity for downstream RPA bots.",
+            impact: "Digitized 4 manual processes and reduced user submission errors by 25%.",
+            tags: ["React.js", "Frontend Validation", "PHP"],
+            link: "#",
+            linkLabel: "Proprietary Implementation",
+            isInternal: true
         }
     ];
 
@@ -100,7 +110,7 @@ const ProfessionalHighlights = () => {
                     </p>
                 </motion.div>
 
-                <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
                     {highlights.map((item, index) => (
                         <HighlightCard key={index} {...item} index={index} />
                     ))}
