@@ -5,6 +5,19 @@ import { FaAward, FaTimes, FaExternalLinkAlt } from 'react-icons/fa';
 const Certifications = () => {
     const [selectedImg, setSelectedImg] = useState(null);
 
+    const certs = [
+        {
+            title: "Certified Full Stack Developer",
+            issuer: "GUVI Geek Networks, IITM Research Park",
+            img: "/assets/FullStack Certificate.png"
+        },
+        {
+            title: "Python Programming",
+            issuer: "GUVI Geek Networks",
+            img: "/assets/Python Certificate.png"
+        }
+    ];
+
     return (
         <section id="certifications" className="py-20 bg-gray-900 relative">
             <div className="container mx-auto px-4">
@@ -20,30 +33,37 @@ const Certifications = () => {
                     </p>
                 </motion.div>
 
-                <div className="flex justify-center">
-                    <motion.div
-                        whileHover={{ scale: 1.02 }}
-                        className="bg-gray-800 p-4 rounded-2xl border border-gray-700 shadow-xl max-w-3xl w-full cursor-pointer group relative"
-                        onClick={() => setSelectedImg("/assets/FullStack Certificate.png")}
-                    >
-                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl flex items-center justify-center">
-                            <span className="text-white font-bold flex items-center gap-2"><FaExternalLinkAlt /> View Full Size</span>
-                        </div>
-                        <img
-                            src="/assets/FullStack Certificate.png"
-                            alt="Full Stack Developer Certificate"
-                            className="w-full h-auto rounded-xl"
-                        />
-                        <div className="mt-4 flex items-center gap-3">
-                            <div className="p-2 bg-purple-900/30 rounded-lg text-purple-400">
-                                <FaAward size={24} />
+                <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    {certs.map((cert, index) => (
+                        <motion.div
+                            key={index}
+                            whileHover={{ scale: 1.02 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.1 }}
+                            className="bg-gray-800 p-4 rounded-2xl border border-gray-700 shadow-xl cursor-pointer group relative"
+                            onClick={() => setSelectedImg(cert.img)}
+                        >
+                            <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl flex items-center justify-center z-10">
+                                <span className="text-white font-bold flex items-center gap-2"><FaExternalLinkAlt /> View Full Size</span>
                             </div>
-                            <div>
-                                <h3 className="text-xl font-bold text-white">Certified Full Stack Developer</h3>
-                                <p className="text-gray-400 text-sm">GUVI Geek Networks, IITM Research Park</p>
+                            <img
+                                src={cert.img}
+                                alt={cert.title}
+                                className="w-full h-auto rounded-xl"
+                            />
+                            <div className="mt-4 flex items-center gap-3">
+                                <div className="p-2 bg-purple-900/30 rounded-lg text-purple-400">
+                                    <FaAward size={24} />
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-bold text-white">{cert.title}</h3>
+                                    <p className="text-gray-400 text-sm">{cert.issuer}</p>
+                                </div>
                             </div>
-                        </div>
-                    </motion.div>
+                        </motion.div>
+                    ))}
                 </div>
             </div>
 
